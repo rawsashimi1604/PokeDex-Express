@@ -24,19 +24,20 @@
 
     <main class="container">
         <div class="row">
-            <div class="col-8">
+            <div class="col main-info">
                 <h1>Hello! This is Pokedex-Express.</h1>
                 <p>This is a mini project made to learn NodeJS, EJS, Express and API Calls</p>
-                <br>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. In amet enim officia nostrum cumque aliquam
-                    exercitationem voluptatum vitae veritatis! Veniam dolorem asperiores ea, adipisci optio illum quas
-                    sunt consequatur aliquam sit deleniti. Quidem iusto excepturi, est mollitia maiores atque suscipit
-                    quia eos possimus, itaque odit eius iste. Magnam, officiis necessitatibus?</p>
+                <p>Only Kanto Region Pokemon from number 1 to 151 are available.</p>
             </div>
-            <div class="col-4 test">
-                <p>paragraph test</p>
+        </div>
+
+        <div class="pokemon">
+            <% for(let i = 0; i < 151; i++) { %>
+            <div class="curr-pokemon">
                 <img src="<%= imgSrc %>" alt="Bulbasaur">
+                <span><%= name %></span>
             </div>
+            <% } %>
         </div>
 
 

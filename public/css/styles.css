@@ -1,4 +1,15 @@
-div .test {
-    background-color: olive;
-    color: blue;
+.main-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.curr-pokemon {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.curr-pokemon span {
+    text-align: center;
+    font-size: 0.8rem;
 }

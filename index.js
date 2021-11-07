@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const axios = require('axios');
+const connectDB = require('./db/connect.js');
 const PORT = 3000;
+require("dotenv").config();
 
 // Set html templating engine to EJS
 app.set('view engine', 'ejs');
@@ -12,22 +13,22 @@ app.set('views', path.join(__dirname, "views"));
 // Directory to serve all files
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get('/', function (req, res) {
-    let imgSrc = "";
-    // Get charmander image
-    axios.get("https://pokeapi.co/api/v2/pokemon/1").then(resp => {
-        // console.log(`Sprite links: ${util.inspect(resp.data.sprites, {depth: null})}`);
-        imgSrc = resp.data.sprites.front_default;
-        res.render('home.ejs', {
-            imgSrc: imgSrc
-        });
-    })
-})
+// Use main routes & API routes
+app.use('/', require("./routes/allmain"));
+app.use('/api', require("./routes/allAPI"));
 
-app.get('/pokemon', function (req, res) {
-    res.send("I love pokemon!");
-})
 
-app.listen(PORT, function () {
-    console.log(`example app listening at http://localhost:${PORT}`);
-})
+
+// API Routes
+// -----
+
+const start = async () => {
+    try {
+        await connectDB(process.env.MONGO_URI);
+        app.listen(PORT, console.log(`Server is listening on port ${PORT}...`));
+    } catch (e) {
+        console.log(e);
+    }
+};
+
+start();
