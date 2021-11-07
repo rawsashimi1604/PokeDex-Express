@@ -1,19 +1,26 @@
 const express = require('express');
 const router = new express.Router();
 const axios = require('axios');
+const Pokemon = require('../models/Pokemon');
 
-router.get('/', function (req, res) {
-    let imgSrc = "";
-    let name = "";
-    // Get charmander image
-    axios.get("https://pokeapi.co/api/v2/pokemon/1").then(resp => {
-        imgSrc = resp.data.sprites.front_default;
-        name = resp.data.name;
-        res.render('home.ejs', {
-            imgSrc: imgSrc,
-            name: name
+
+async function retrieveDataFromDB() {
+    const data = [];
+    for (let i = 1; i <= 151; i++) {
+        const myPokeObj = await Pokemon.findOne({
+            pokeID: i
         });
-    })
+        data.push(myPokeObj);
+    }
+    return data;
+}
+
+router.get('/', async function (req, res) {
+    const data = await retrieveDataFromDB();
+    res.render("../views/home.ejs", {
+        data: data
+    });
+    // res.json(data);
 })
 
 router.get('/pokemon', function (req, res) {

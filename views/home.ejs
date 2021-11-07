@@ -34,8 +34,8 @@
         <div class="pokemon">
             <% for(let i = 0; i < 151; i++) { %>
             <div class="curr-pokemon">
-                <img src="<%= imgSrc %>" alt="Bulbasaur">
-                <span><%= name %></span>
+                <img src="<%= data[i].sprite %>" alt="<%= data[i].name %>">
+                <span><%= data[i].name %></span>
             </div>
             <% } %>
         </div>
