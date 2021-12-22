@@ -1,10 +1,15 @@
 @import 'variables';
+@import 'typography';
 
 @import 'components/buttons';
+@import 'components/highlights';
 
+@import 'layout/footer';
+@import 'layout/forms';
 @import 'layout/nav';
 
 @import 'pages/home';
+@import 'pages/pokemonPage';
 
 body {
     background-color: $timberWolf;

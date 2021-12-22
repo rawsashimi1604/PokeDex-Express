@@ -1,0 +1,88 @@
+@import "../variables";
+
+// Pokemon types
+.pokemon_type {
+    display: flex;
+    justify-content: center;
+
+    font-size: 1.2rem;
+
+    padding: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+
+    width: 70px;
+
+    color: white;
+
+    border-radius: 25px;
+    border: 1.7px solid black;
+
+    &_fire {
+        background-color: map-get($pokemonTypes, fire);
+    }
+
+    &_water {
+        background-color: map-get($pokemonTypes, water);
+    }
+
+    &_electric {
+        background-color: map-get($pokemonTypes, electric);
+    }
+
+    &_grass {
+        background-color: map-get($pokemonTypes, grass);
+    }
+
+    &_ice {
+        background-color: map-get($pokemonTypes, ice);
+    }
+
+    &_fighting {
+        background-color: map-get($pokemonTypes, fighting);
+    }
+
+    &_poison {
+        background-color: map-get($pokemonTypes, poison);
+    }
+
+    &_ground {
+        background-color: map-get($pokemonTypes, ground);
+    }
+
+    &_flying {
+        background-color: map-get($pokemonTypes, flying);
+    }
+
+    &_psychic {
+        background-color: map-get($pokemonTypes, psychic);
+    }
+
+    &_bug {
+        background-color: map-get($pokemonTypes, bug);
+    }
+
+    &_rock {
+        background-color: map-get($pokemonTypes, rock);
+    }
+
+    &_ghost {
+        background-color: map-get($pokemonTypes, ghost);
+    }
+
+    &_dragon {
+        background-color: map-get($pokemonTypes, dragon);
+    }
+
+    &_dark {
+        background-color: map-get($pokemonTypes, dark);
+    }
+
+    &_steel {
+        background-color: map-get($pokemonTypes, steel);
+    }
+
+    &_fairy {
+        background-color: map-get($pokemonTypes, fairy);
+    }
+}
