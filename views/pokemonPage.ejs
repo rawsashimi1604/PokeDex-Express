@@ -1,0 +1,21 @@
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <main>
+        <div class="pokemon-main">
+            <h1 class="pokemon-name"><%= data.name %></h1>
+            <h2 class="pokemon-id"><%= data.pokeID %></h2>
+            <img src="<%= data.sprite %>" alt="<%= data.name %>">
+            <div class="pokemon-types">
+                <span><%= data.type1 %></span>
+                <span><%= data.type2 %></span>
+            </div>
+        </div>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+<%- include('./partials/end.ejs') %>
