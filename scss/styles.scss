@@ -1,0 +1,28 @@
+@import 'variables';
+@import 'components';
+
+body {
+    background-color: $blueSapphire;
+}
+
+.main-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.curr-pokemon {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.curr-pokemon a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.curr-pokemon span {
+    text-align: center;
+    font-size: 0.8rem;
+}
