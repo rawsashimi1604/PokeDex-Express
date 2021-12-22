@@ -19,5 +19,7 @@ async function retrievePokemonFromDB(pokeID) {
     return myPokeObj;
 }
 
+retrievePokemonFromDB(1);
+
 exports.retrieveDataFromDB = retrieveDataFromDB;
 exports.retrievePokemonFromDB = retrievePokemonFromDB;

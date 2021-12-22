@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "views"));
 
 // Directory to serve all files
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "/public")));
 
 // Use main routes & API routes
 app.use('/', require("./routes/allmain"));

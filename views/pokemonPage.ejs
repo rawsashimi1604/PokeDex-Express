@@ -9,8 +9,10 @@
             <h2 class="pokemon-id"><%= data.pokeID %></h2>
             <img src="<%= data.sprite %>" alt="<%= data.name %>">
             <div class="pokemon-types">
-                <span><%= data.type1 %></span>
-                <span><%= data.type2 %></span>
+                <span
+                    class="pixel-font pokemon_type pokemon_type_<%=data.type1%>"><%= data.type1.toUpperCase() %></span>
+                <span
+                    class="pixel-font pokemon_type pokemon_type_<%=data.type2%>"><%= data.type2.toUpperCase() %></span>
             </div>
         </div>
     </main>

@@ -21,29 +21,64 @@ function sleep(ms) {
 connect(process.env.MONGO_URI);
 
 async function seedDBNew(sleepTime) {
+
+    // Remove collection in MongoDB.
+    Pokemon.collection.drop();
+
+    // Add new documents.
     for (let i = 1; i <= 151; i++) {
-        await sleep(sleepTime);
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`).then(resp => {
-            let imgSrc = resp.data.sprites.front_default;
-            let name = resp.data.name;
-            let pokeID = resp.data.id;
-            let type1 = resp.data.types[0].type.name;
-            let type2 = resp.data.types[1];
+
+        // Data Fields
+        let imgSrc;
+        let name;
+        let pokeID;
+        let type1;
+        let type2;
+        let flavorText;
+
+        await sleep(sleepTime); // buffer to reduce API server load
+
+        // Get Data from PokeAPI
+        axios.all([
+            axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`),
+            axios.get(`https://pokeapi.co/api/v2/pokemon-species/${i}/`)
+        ]).then(responseArr => {
+
+            // Get Main Data
+            imgSrc = responseArr[0].data.sprites.front_default;
+            name = responseArr[0].data.name;
+            pokeID = responseArr[0].data.id;
+            type1 = responseArr[0].data.types[0].type.name;
+            type2 = responseArr[0].data.types[1];
             if (typeof type2 !== 'undefined') {
                 type2 = type2.type.name;
             }
 
+            // Get Description
+            const flavorTextArr = responseArr[1].data.flavor_text_entries
+            for (let j = 0; j < flavorTextArr.length; j++) {
+                if (flavorTextArr[j].language.name === "en") {
+                    flavorText = flavorTextArr[j].flavor_text;
+                }
+            }
+
+            // Add to DB
             const pokeObject = {
                 name: name,
                 pokeID: pokeID,
                 type1: type1,
                 type2: type2,
-                sprite: imgSrc
+                sprite: imgSrc,
+                flavorText: flavorText
             }
             console.log(pokeObject);
+
+            // Create document in MongoDB
             Pokemon.create(pokeObject);
-        });
+        })
     }
+
+    return;
 }
 
-seedDBNew(500);
+seedDBNew(200);

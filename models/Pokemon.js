@@ -27,6 +27,10 @@ const PokemonSchema = new mongoose.Schema({
     sprite: {
         type: String,
         required: [true, "Must provide Pokemon Sprite img src link"],
+    },
+    flavorText: {
+        type: String,
+        required: [true, "Must provide Pokemon flavor text"],
     }
 })
 
