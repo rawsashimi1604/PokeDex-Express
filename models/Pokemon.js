@@ -28,6 +28,10 @@ const PokemonSchema = new mongoose.Schema({
         type: String,
         required: [true, "Must provide Pokemon Sprite img src link"],
     },
+    partySprite: {
+        type: String,
+        required: [true, "Must provide Pokemon Party Sprite img src link"],
+    },
     flavorText: {
         type: String,
         required: [true, "Must provide Pokemon flavor text"],

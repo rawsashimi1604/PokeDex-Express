@@ -11,8 +11,7 @@
             <span>#<%= data[i].pokeID %></span>
 
             <!-- Pokemon Sprite from pokesprite -->
-            <img src="./images/pokesprite/regular/<%= data[i].name %>.png" alt="<%= data[i].name %>"
-                class="align-self-center">
+            <img src="<%= data[i].partySprite %>" alt="<%= data[i].name %>" class="align-self-center">
 
             <!-- Pokemon Name, made uppercase -->
             <% let name = data[i].name %>

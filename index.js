@@ -17,11 +17,6 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use('/', require("./routes/allmain"));
 app.use('/api', require("./routes/allAPI"));
 
-
-
-// API Routes
-// -----
-
 const start = async () => {
     try {
         await connectDB(process.env.MONGO_URI);

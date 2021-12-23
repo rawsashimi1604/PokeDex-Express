@@ -62,6 +62,9 @@ async function seedDBNew(sleepTime) {
                 }
             }
 
+            // Get Party Sprite src link
+            const partySpriteLink = `https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/regular/${name}.png`;
+
             // Add to DB
             const pokeObject = {
                 name: name,
@@ -69,6 +72,7 @@ async function seedDBNew(sleepTime) {
                 type1: type1,
                 type2: type2,
                 sprite: imgSrc,
+                partySprite: partySpriteLink,
                 flavorText: flavorText
             }
             console.log(pokeObject);
