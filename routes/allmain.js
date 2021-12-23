@@ -10,8 +10,11 @@ router.get('/', async function (req, res) {
     });
 })
 
-router.get('/pokemon', function (req, res) {
-    res.send("I love pokemon!");
+router.get('/pokemon', async function (req, res) {
+    const data = await getPokemon.retrieveDataFromDB();
+    res.render("../views/pokedex.ejs", {
+        data: data
+    });
 })
 
 router.get('/pokemon/:id', async function (req, res) {

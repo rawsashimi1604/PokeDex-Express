@@ -11,8 +11,10 @@
             <div class="pokemon-types">
                 <span
                     class="pixel-font pokemon_type pokemon_type_<%=data.type1%>"><%= data.type1.toUpperCase() %></span>
+                <% if(data.type2 !== undefined) { %>
                 <span
                     class="pixel-font pokemon_type pokemon_type_<%=data.type2%>"><%= data.type2.toUpperCase() %></span>
+                <% } %>
             </div>
         </div>
     </main>

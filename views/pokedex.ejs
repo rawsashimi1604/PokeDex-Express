@@ -1,0 +1,37 @@
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <main class="container d-flex flex-column justify-content-center align-items-center">
+        <% for(let i = 0; i < 151; i++) { %>
+
+        <div class="d-flex justify-content-between align-items-center">
+            <!-- Pokedex ID -->
+            <span>#<%= data[i].pokeID %></span>
+
+            <!-- Pokemon Sprite from pokesprite -->
+            <img src="./images/pokesprite/regular/<%= data[i].name %>.png" alt="<%= data[i].name %>"
+                class="align-self-center">
+
+            <!-- Pokemon Name, made uppercase -->
+            <% let name = data[i].name %>
+            <% name = name.charAt(0).toUpperCase() + name.slice(1) %>
+            <a href="/pokemon/<%= data[i].pokeID %>"><span><%= name %></span></a>
+
+
+            <!-- Pokemon Types -->
+            <span
+                class="pixel-font pokemon_type pokemon_type_<%=data[i].type1%>"><%= data[i].type1.toUpperCase() %></span>
+            <% if(data[i].type2 !== undefined) { %>
+            <span
+                class="pixel-font pokemon_type pokemon_type_<%=data[i].type2%>"><%= data[i].type2.toUpperCase() %></span>
+            <% } %>
+        </div>
+        <% } %>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+<%- include('./partials/end.ejs') %>
