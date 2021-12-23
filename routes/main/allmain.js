@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const router = new express.Router();
-const getPokemon = require('../db/getPokemon');
+const getPokemon = require('../../db/getPokemon');
 
 router.get('/', async function (req, res) {
     axios.get('http://localhost:3000/api/pokemon').then(resp => {

@@ -14,8 +14,8 @@ app.set('views', path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "/public")));
 
 // Use main routes & API routes
-app.use('/', require("./routes/allmain"));
-app.use('/api', require("./routes/allAPI"));
+app.use('/', require("./routes/main/allmain"));
+app.use('/api', require("./routes/api/allAPI"));
 
 const start = async () => {
     try {

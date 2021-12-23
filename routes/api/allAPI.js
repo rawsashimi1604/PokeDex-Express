@@ -1,7 +1,7 @@
 const express = require('express');
 const router = new express.Router();
 
-const getPokemon = require('../db/getPokemon');
+const getPokemon = require('../../db/getPokemon');
 
 // GET All Pokemon
 router.get('/pokemon', async function (req, res) {

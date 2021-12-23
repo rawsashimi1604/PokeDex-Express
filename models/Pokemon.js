@@ -1,41 +1,121 @@
 const mongoose = require("mongoose");
 
+const AbilitySchema = new mongoose.Schema({
+    name: {
+        type: String
+    },
+    description: {
+        type: String
+    },
+    effect: {
+        type: String
+    },
+})
+
+const StatsSchema = new mongoose.Schema({
+    hp: {
+        type: Number
+    },
+    attack: {
+        type: Number
+    },
+    defense: {
+        type: Number
+    },
+    special_attack: {
+        type: Number
+    },
+    special_defense: {
+        type: Number
+    },
+    speed: {
+        type: Number
+    },
+})
+
+const MovesSchema = new mongoose.Schema({
+    name: {
+        type: String
+    },
+    method: {
+        type: String
+    },
+    level: {
+        type: Number
+    },
+    machine: {
+        type: [{
+            machine_type: {
+                type: String
+            },
+            machine_number: {
+                type: Number
+            },
+        }]
+    },
+    type: {
+        type: String
+    },
+    category: {
+        type: String
+    },
+    power: {
+        type: Number
+    },
+    pp: {
+        type: Number
+    },
+    accuracy: {
+        type: Number
+    },
+    priority: {
+        type: Number
+    },
+})
+
 // defines document type
 const PokemonSchema = new mongoose.Schema({
     name: {
-        type: String,
-        required: [true, "Must provide Pokemon name"],
-        trim: true,
-        maxlength: [50, "Name can not be more than 50 characters"],
+        type: String
     },
     pokeID: {
+        type: Number
+    },
+    gene: {
+        type: String
+    },
+    height: {
         type: Number,
-        unique: true,
-        required: [true, "Must provide Pokedex ID"],
     },
-    type1: {
-        type: String,
-        required: [true, "Must provide Pokemon type 1"],
-        trim: true,
-        maxlength: [12, "Type1 can not be more than 12 characters"],
+    weight: {
+        type: Number
     },
-    type2: {
-        type: String,
-        trim: true,
-        maxlength: [12, "Type2 can not be more than 12 characters"],
+    types: {
+        type: [{
+            type1: {
+                type: String
+            },
+            type2: {
+                type: String
+            }
+        }]
     },
-    sprite: {
-        type: String,
-        required: [true, "Must provide Pokemon Sprite img src link"],
+    images: {
+        type: [{
+            sprite: {
+                type: String
+            },
+            partySprite: {
+                type: String
+            }
+        }]
     },
-    partySprite: {
-        type: String,
-        required: [true, "Must provide Pokemon Party Sprite img src link"],
+    description: {
+        type: String
     },
-    flavorText: {
-        type: String,
-        required: [true, "Must provide Pokemon flavor text"],
-    }
+    abiltiies: [AbilitySchema],
+    stats: StatsSchema,
+    moves: [MovesSchema],
 })
 
 module.exports = mongoose.model("Pokemon", PokemonSchema);

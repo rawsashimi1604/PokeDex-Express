@@ -1,8 +1,8 @@
 // Seed database
 const axios = require('axios');
 const mongoose = require('mongoose');
-const connectDB = require('../db/connect');
-const Pokemon = require("../models/Pokemon");
+const connectDB = require('../connect');
+const Pokemon = require("../../models/Pokemon");
 require("dotenv").config();
 
 
@@ -69,10 +69,14 @@ async function seedDBNew(sleepTime) {
             const pokeObject = {
                 name: name,
                 pokeID: pokeID,
-                type1: type1,
-                type2: type2,
-                sprite: imgSrc,
-                partySprite: partySpriteLink,
+                types: [{
+                    type1: type1,
+                    type2: type2,
+                }],
+                images: [{
+                    sprite: imgSrc,
+                    partySprite: partySpriteLink,
+                }],
                 flavorText: flavorText
             }
             console.log(pokeObject);
