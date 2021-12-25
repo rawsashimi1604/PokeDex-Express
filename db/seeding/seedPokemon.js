@@ -3,6 +3,10 @@ const axios = require('axios');
 const mongoose = require('mongoose');
 const connectDB = require('../connect');
 const Pokemon = require("../../models/Pokemon");
+const Ability = require("../../models/Ability");
+const {
+    response
+} = require('express');
 require("dotenv").config();
 
 
@@ -26,29 +30,33 @@ async function seedDBNew(sleepTime) {
     Pokemon.collection.drop();
 
     // Add new documents.
-    for (let i = 1; i <= 1; i++) {
+    for (let i = 1; i <= 151; i++) {
 
         // Data Fields
-        let imgSrc;
+        let sprite;
         let name;
         let pokeID;
+        let gene;
+        let height;
+        let weight;
         let type1;
         let type2;
-        let flavorText;
-        let ability;
+        let description;
 
         await sleep(sleepTime); // buffer to reduce API server load
 
         // Get Data from PokeAPI
         axios.all([
             axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`),
-            axios.get(`https://pokeapi.co/api/v2/pokemon-species/${i}/`)
+            axios.get(`https://pokeapi.co/api/v2/pokemon-species/${i}/`),
         ]).then(responseArr => {
 
             // Get Main Data
-            imgSrc = responseArr[0].data.sprites.front_default;
+            sprite = responseArr[0].data.sprites.front_default;
             name = responseArr[0].data.name;
             pokeID = responseArr[0].data.id;
+            height = responseArr[0].data.height;
+            weight = responseArr[0].data.weight;
             type1 = responseArr[0].data.types[0].type.name;
             type2 = responseArr[0].data.types[1];
             if (typeof type2 !== 'undefined') {
@@ -56,13 +64,21 @@ async function seedDBNew(sleepTime) {
             }
 
             // Get Party Sprite src link
-            const partySpriteLink = `https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/regular/${name}.png`;
+            const partySprite = `https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/regular/${name}.png`;
 
             // Get Description
             const flavorTextArr = responseArr[1].data.flavor_text_entries
             for (let j = 0; j < flavorTextArr.length; j++) {
                 if (flavorTextArr[j].language.name === "en") {
-                    flavorText = flavorTextArr[j].flavor_text;
+                    description = flavorTextArr[j].flavor_text;
+                }
+            }
+
+            // Get Genus
+            const genusArr = responseArr[1].data.genera;
+            for (let j = 0; j < genusArr.length; j++) {
+                if (genusArr[j].language.name === "en") {
+                    gene = genusArr[j].genus;
                 }
             }
 
@@ -101,66 +117,39 @@ async function seedDBNew(sleepTime) {
                 speed: statsSpeed
             }
 
-            console.log(statsObj)
-
-            // Get Moves
-            const moves = responseArr[0].data.moves
-
-
-
             // Get Abilities
-            const abilityArray = [];
-            let abilityInfoArray = responseArr[0].data.abilities;
-
-            async function getAllAbilities(abilityArray, abilityInfoArray) {
-                const abilityObjArray = [];
-
-                for (let j = 0; j < abilityInfoArray.length; j++) {
-                    async function getAbilityData(abilityCurrSelectedObj, abilityObjArray) {
-                        let abilitySrc = abilityCurrSelectedObj.ability.url;
-                        let abilityEffect;
-                        let abilityDescription;
-
-                        return axios.get(abilitySrc).then(resp => {
-                            // Get the ability effect data
-                            let abilityEffects = resp.data.effect_entries;
-                            for (k = 0; k < abilityEffects.length; k++) {
-                                if (abilityEffects[k].language.name === "en") {
-                                    abilityEffect = abilityEffects[k].effect;
-                                    break;
-                                }
-                            }
-                            let abilityDescriptions = resp.data.flavor_text_entries;
-                            for (k = 0; k < abilityDescriptions.length; k++) {
-                                if (abilityDescriptions[k].language.name === "en" && abilityDescriptions[k].version_group.name == "firered-leafgreen") {
-                                    abilityDescription = abilityDescriptions[k].flavor_text;
-                                }
-                            }
-                        }).then(() => {
-                            let abilityName = abilityCurrSelectedObj.ability.name;
-                            let abilityIsHidden = abilityCurrSelectedObj.is_hidden;
-                            const abilityObj = {
-                                name: abilityName,
-                                description: abilityDescription,
-                                effect: abilityEffect,
-                                is_hidden: abilityIsHidden
-                            }
-                            // abilityObjArray.push(abilityObj);
-                            return abilityObj;
-                        })
-                    }
-
-                    let abilityObj = await getAbilityData(abilityInfoArray[j], abilityObjArray);
-                    abilityObjArray.push(abilityObj);
-                }
-                return abilityObjArray
+            const abilities = responseArr[0].data.abilities;
+            const abilityPromises = [];
+            for (let j = 0; j < abilities.length; j++) {
+                let abilityName = abilities[j].ability.name;
+                abilityPromises.push(Ability.findOne({
+                    name: abilityName
+                }));
             }
 
-            // getAllAbilities(abilityArray, abilityInfoArray).then(resp => {
-            //     console.log(resp);
-            // })
-
-
+            Promise.all(abilityPromises).then(responseArray => {
+                abilityObject = responseArray;
+                let pokeObj = {
+                    name: name,
+                    pokeID: pokeID,
+                    gene: gene,
+                    height: height,
+                    weight: weight,
+                    types: [{
+                        type1: type1,
+                        type2: type2
+                    }],
+                    images: [{
+                        sprite: sprite,
+                        partySprite: partySprite
+                    }],
+                    description: description,
+                    abilities: abilityObject,
+                    stats: statsObj
+                }
+                console.log(pokeObj)
+                Pokemon.create(pokeObj);
+            })
         })
     }
 

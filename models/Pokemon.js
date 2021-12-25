@@ -36,45 +36,45 @@ const StatsSchema = new mongoose.Schema({
     },
 })
 
-const MovesSchema = new mongoose.Schema({
-    name: {
-        type: String
-    },
-    method: {
-        type: String
-    },
-    level: {
-        type: Number
-    },
-    machine: {
-        type: [{
-            machine_type: {
-                type: String
-            },
-            machine_number: {
-                type: Number
-            },
-        }]
-    },
-    type: {
-        type: String
-    },
-    category: {
-        type: String
-    },
-    power: {
-        type: Number
-    },
-    pp: {
-        type: Number
-    },
-    accuracy: {
-        type: Number
-    },
-    priority: {
-        type: Number
-    },
-})
+// const MovesSchema = new mongoose.Schema({
+//     name: {
+//         type: String
+//     },
+//     method: {
+//         type: String
+//     },
+//     level: {
+//         type: Number
+//     },
+//     machine: {
+//         type: [{
+//             machine_type: {
+//                 type: String
+//             },
+//             machine_number: {
+//                 type: Number
+//             },
+//         }]
+//     },
+//     type: {
+//         type: String
+//     },
+//     category: {
+//         type: String
+//     },
+//     power: {
+//         type: Number
+//     },
+//     pp: {
+//         type: Number
+//     },
+//     accuracy: {
+//         type: Number
+//     },
+//     priority: {
+//         type: Number
+//     },
+// })
 
 // defines document type
 const PokemonSchema = new mongoose.Schema({
@@ -116,9 +116,9 @@ const PokemonSchema = new mongoose.Schema({
     description: {
         type: String
     },
-    abiltiies: [AbilitySchema],
+    abilities: [AbilitySchema],
     stats: StatsSchema,
-    moves: [MovesSchema],
+    // moves: [MovesSchema],
 })
 
 module.exports = mongoose.model("Pokemon", PokemonSchema);
