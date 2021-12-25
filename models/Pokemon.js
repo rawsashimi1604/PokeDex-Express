@@ -10,6 +10,9 @@ const AbilitySchema = new mongoose.Schema({
     effect: {
         type: String
     },
+    is_hidden: {
+        type: Boolean
+    }
 })
 
 const StatsSchema = new mongoose.Schema({
