@@ -11,7 +11,7 @@
             <span>#<%= data[i].pokeID %></span>
 
             <!-- Pokemon Sprite from pokesprite -->
-            <img src="<%= data[i].partySprite %>" alt="<%= data[i].name %>" class="align-self-center">
+            <img src="<%= data[i].images[0].partySprite %>" alt="<%= data[i].name %>" class="align-self-center">
 
             <!-- Pokemon Name, made uppercase -->
             <% let name = data[i].name %>
@@ -20,11 +20,11 @@
 
 
             <!-- Pokemon Types -->
-            <span
-                class="pixel-font pokemon_type pokemon_type_<%=data[i].type1%>"><%= data[i].type1.toUpperCase() %></span>
-            <% if(data[i].type2 !== undefined) { %>
-            <span
-                class="pixel-font pokemon_type pokemon_type_<%=data[i].type2%>"><%= data[i].type2.toUpperCase() %></span>
+            <span class="pixel-font pokemon_type
+                pokemon_type_<%=data[i].types[0].type1%>"><%= data[i].types[0].type1.toUpperCase() %></span>
+            <% if(data[i].types[0].type2 !== undefined) { %>
+            <span class="pixel-font pokemon_type
+                pokemon_type_<%=data[i].types[0].type2%>"><%= data[i].types[0].type2.toUpperCase() %></span>
             <% } %>
         </div>
         <% } %>

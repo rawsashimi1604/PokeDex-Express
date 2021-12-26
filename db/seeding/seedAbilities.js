@@ -45,7 +45,7 @@ async function seedDBAbilities(sleepTime) {
                             let abilityEffects = resp.data.effect_entries;
                             for (k = 0; k < abilityEffects.length; k++) {
                                 if (abilityEffects[k].language.name === "en") {
-                                    abilityEffect = abilityEffects[k].effect;
+                                    abilityEffect = abilityEffects[k].effect.replace(/(\r\n|\n|\r)/gm, " ")
                                     break;
                                 }
                             }

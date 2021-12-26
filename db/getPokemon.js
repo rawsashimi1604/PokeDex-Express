@@ -15,6 +15,7 @@ async function retrievePokemonFromDB(pokeID) {
     const myPokeObj = await Pokemon.findOne({
         pokeID: pokeID
     });
+    console.log(myPokeObj);
     return myPokeObj;
 }
 

@@ -70,7 +70,7 @@ async function seedDBNew(sleepTime) {
             const flavorTextArr = responseArr[1].data.flavor_text_entries
             for (let j = 0; j < flavorTextArr.length; j++) {
                 if (flavorTextArr[j].language.name === "en") {
-                    description = flavorTextArr[j].flavor_text;
+                    description = flavorTextArr[j].flavor_text.replace(/(\r\n|\n|\r)/gm, " ")
                 }
             }
 

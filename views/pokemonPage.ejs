@@ -7,15 +7,36 @@
         <div class="pokemon-main">
             <h1 class="pokemon-name"><%= data.name %></h1>
             <h2 class="pokemon-id"><%= data.pokeID %></h2>
-            <img src="<%= data.sprite %>" alt="<%= data.name %>">
+            <h3 class="pokemon-gene"><%= data.gene %></h3>
+            <img src="<%= data.images[0].sprite %>" alt="<%= data.name %>">
             <div class="pokemon-types">
-                <span
-                    class="pixel-font pokemon_type pokemon_type_<%=data.type1%>"><%= data.type1.toUpperCase() %></span>
-                <% if(data.type2 !== undefined) { %>
-                <span
-                    class="pixel-font pokemon_type pokemon_type_<%=data.type2%>"><%= data.type2.toUpperCase() %></span>
+                <span class="pixel-font pokemon_type
+                    pokemon_type_<%=data.types[0].type1%>"><%= data.types[0].type1.toUpperCase() %></span>
+                <% if(data.types[0].type2 !== undefined) { %>
+                <span class="pixel-font pokemon_type
+                    pokemon_type_<%=data.types[0].type2%>"><%= data.types[0].type2.toUpperCase() %></span>
                 <% } %>
             </div>
+            <span class="pokemon-height">Height: <%= data.height %></span>
+            <span class="pokemon-weight">Weight: <%= data.weight %></span>
+            <span class="pokemon-description"><%= data.description %></span>
+            <% for(let i = 0; i < data.abilities.length; i++) { %>
+            <div class="pokemon-ability">
+                <span><%= data.abilities[i].name %></span>
+                <span><%= data.abilities[i].description %></span>
+                <span><%= data.abilities[i].effect %></span>
+                <span><%= data.abilities[i].is_hidden %></span>
+            </div>
+            <% } %>
+            <div class="pokemon-stats">
+                <span>Hp: <%= data.stats.hp %></span>
+                <span>Attack: <%= data.stats.attack %></span>
+                <span>Defense: <%= data.stats.defense %></span>
+                <span>Special Attack: <%= data.stats.special_attack %></span>
+                <span>Special Defense: <%= data.stats.special_defense %></span>
+                <span>Speed: <%= data.stats.speed %></span>
+            </div>
+
         </div>
     </main>
 

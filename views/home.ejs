@@ -16,7 +16,7 @@
             <% for(let i = 0; i < 151; i++) { %>
             <div class="curr-pokemon">
                 <a href="/pokemon/<%= data[i].pokeID %>">
-                    <img src="<%= data[i].sprite %>" alt="<%= data[i].name %>">
+                    <img src="<%= data[i].images[0].sprite %>" alt="<%= data[i].name %>">
                     <span><%= data[i].name %></span>
                 </a>
             </div>
