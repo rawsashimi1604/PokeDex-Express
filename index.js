@@ -5,6 +5,20 @@ const connectDB = require('./db/connect.js');
 const PORT = 3000;
 require("dotenv").config();
 
+// Live Reload
+var livereload = require("livereload");
+var connectLivereload = require('connect-livereload');
+
+var liveReloadServer = livereload.createServer();
+liveReloadServer.watch(__dirname);
+liveReloadServer.server.once("connection", () => {
+    setTimeout(() => {
+        liveReloadServer.refresh("/");
+    }, 100);
+});
+
+app.use(connectLivereload());
+
 // Set html templating engine to EJS
 app.set('view engine', 'ejs');
 // Set views directory to get html templating

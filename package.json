@@ -5,15 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devStart": "nodemon index.js"
+    "devStart": "nodemon index.js",
+    "start": "node ./bin/www",
+    "watch": "nodemon --ext *"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",
+    "connect-livereload": "^0.6.1",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "livereload": "^0.9.3",
     "mongoose": "^6.0.12",
     "nodemon": "^2.0.15"
   }

@@ -11,6 +11,16 @@
 @import 'pages/home';
 @import 'pages/pokemonPage';
 
+* {
+    box-sizing: border-box;
+    font-family: 'VT323', arial;
+
+}
+
+h1 {
+    color: yellow;
+}
+
 body {
     background-color: $timberWolf;
 }
