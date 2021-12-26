@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 // Use main routes & API routes
 app.use('/', require("./routes/main/allmain"));
 app.use('/api', require("./routes/api/pokemon"));
+app.use('/api', require("./routes/api/abilities"));
 
 const start = async () => {
     try {

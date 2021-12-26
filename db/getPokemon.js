@@ -1,6 +1,6 @@
 const Pokemon = require('../models/Pokemon');
 
-async function retrieveDataFromDB() {
+async function retrieveAllPokemonFromDB() {
     const data = [];
     for (let i = 1; i <= 151; i++) {
         const myPokeObj = await Pokemon.findOne({
@@ -19,7 +19,5 @@ async function retrievePokemonFromDB(pokeID) {
     return myPokeObj;
 }
 
-retrievePokemonFromDB(1);
-
-exports.retrieveDataFromDB = retrieveDataFromDB;
+exports.retrieveAllPokemonFromDB = retrieveAllPokemonFromDB;
 exports.retrievePokemonFromDB = retrievePokemonFromDB;
