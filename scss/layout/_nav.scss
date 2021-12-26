@@ -1,5 +1,6 @@
 nav {
     width: 100%;
+    background-color: $maizeCrayola !important;
 
     ul {
         width: 100%;
@@ -25,4 +26,8 @@ nav {
             transition: 0.1s;
         }
     }
+}
+
+.navbar-custom {
+    background-color: $maizeCrayola;
 }

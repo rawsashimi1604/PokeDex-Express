@@ -1,6 +1,8 @@
 @import 'variables';
 @import 'typography';
 
+@import 'animations/typewriter';
+
 @import 'components/buttons';
 @import 'components/highlights';
 
@@ -14,7 +16,6 @@
 * {
     box-sizing: border-box;
     font-family: 'VT323', arial;
-
 }
 
 body {
