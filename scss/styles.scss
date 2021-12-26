@@ -17,10 +17,13 @@
 
 }
 
-h1 {
-    color: yellow;
-}
-
 body {
     background-color: $timberWolf;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    margin: 0;
+    padding: 0;
 }

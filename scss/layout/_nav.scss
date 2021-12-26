@@ -1,0 +1,28 @@
+nav {
+    width: 100%;
+
+    ul {
+        width: 100%;
+    }
+
+    #searchBar {
+        align-self: flex-end;
+        max-width: 200px;
+        margin-left: auto;
+
+        #search-addon {
+            padding-left: 8px;
+            padding-right: 8px;
+
+            .material-icons {
+                font-size: 20px;
+            }
+        }
+
+        #search-addon:hover {
+            cursor: pointer;
+            background: $cadetGray;
+            transition: 0.1s;
+        }
+    }
+}
