@@ -7,15 +7,19 @@
     /* Keeps the content on a single line */
     margin: 0 auto;
     /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .15em;
+    letter-spacing: .12em;
     /* Adjust as needed */
     animation:
-        typing 3.5s steps(40, end),
-        blink-caret .75s step-end infinite;
+        typing 1.5s steps(40, end),
+        blink-caret .85s step-end infinite;
+}
+
+.typewriter-contents {
+    display: inline-block;
 }
 
 .target-typewriter {
-    display: inline-block;
+    display: inline-block !important;
 }
 
 /* The typing effect */
@@ -25,7 +29,7 @@
     }
 
     to {
-        width: 50%;
+        width: 100%;
     }
 }
 
