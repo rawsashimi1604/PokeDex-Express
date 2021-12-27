@@ -312,8 +312,9 @@ nav #searchBar #search-addon:hover {
   background-color: #E2C044;
 }
 
-.pokedex-img-cell {
-  padding-bottom: 1.5rem !important;
+.pokedex-img-cell img {
+  width: 80px;
+  margin-top: -2rem;
 }
 
 .pokedex a {

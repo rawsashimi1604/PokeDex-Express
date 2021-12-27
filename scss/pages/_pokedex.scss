@@ -28,7 +28,12 @@
     }
 
     &-img-cell {
-        padding-bottom: 1.5rem !important;
+        // padding-bottom: 1rem !important;
+
+        img {
+            width: 80px;
+            margin-top: -2rem;
+        }
     }
 
     a {
