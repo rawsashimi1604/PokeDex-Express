@@ -1,6 +1,13 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .home-info {
     margin-top: 0.7rem;
     margin-bottom: 0.7rem;
+    align-self: flex-start;
 
     p {
         margin-bottom: 0;
@@ -9,8 +16,11 @@
 }
 
 .home-pokemon {
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
+    justify-content: center;
+
+    margin-top: 0.5rem;
 
     &-object {
         display: inline-flex;
