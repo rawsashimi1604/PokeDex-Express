@@ -150,6 +150,12 @@ nav {
   background-color: #E2C044 !important;
 }
 
+nav .navbar-brand {
+  font-size: 1.5rem !important;
+  color: #2E5266;
+  text-shadow: 1px 1px 2px #9FB1BC;
+}
+
 nav ul {
   width: 100%;
 }
@@ -295,6 +301,10 @@ nav #searchBar #search-addon:hover {
   text-decoration: underline;
 }
 
+.pokedex thead {
+  background-color: #E2C044;
+}
+
 .pokedex table,
 .pokedex thead,
 .pokedex tr,
@@ -302,10 +312,6 @@ nav #searchBar #search-addon:hover {
 .pokedex td {
   border: 2px solid #6E8898;
   text-align: center;
-}
-
-.pokedex thead:hover {
-  background-color: #E2C044;
 }
 
 .pokedex tr:hover {

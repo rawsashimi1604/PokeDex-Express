@@ -10,6 +10,10 @@
         }
     }
 
+    thead {
+        background-color: $maizeCrayola;
+    }
+
     table,
     thead,
     tr,
@@ -17,10 +21,6 @@
     td {
         border: 2px solid $lightStateGray;
         text-align: center;
-    }
-
-    thead:hover {
-        background-color: $maizeCrayola;
     }
 
     tr:hover {
