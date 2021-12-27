@@ -3,53 +3,56 @@
 <body>
     <%- include('./partials/nav.ejs') %>
 
-    <main class="container-fluid">
-        <header class="row">
-            <div class="col typewriter home-info">
-                <h1 class="target-typewriter">
-                    Hello! This is Pokedex-Express.
-                </h1>
+    <div class="">
+        <main class="container-fluid ">
+            <header class="row home-info">
+                <div class="col typewriter">
+                    <h1 class="target-typewriter">
+                        Hello! This is Pokedex-Express.
+                    </h1>
 
-                <div data-aos="fade-right" data-aos-duration="1500">
-                    <p>This is a mini project made to learn Full Stack Development</p>
-                    <p>Only Kanto Region Pokemon from number 1 to 151 are available.</p>
-                </div>
-            </div>
-        </header>
-
-        <div class="home-pokemon">
-            <% for(let i = 0; i < 151; i++) { %>
-            <div class="home-pokemon-object">
-                <a href="/pokemon/<%= data[i].pokeID %>">
-
-                    <!-- Pokedex ID -->
-                    <span class="home-pokemon-object-pokeID">#<%= String(data[i].pokeID).padStart(3, '0') %></span>
-
-                    <!-- Pokemon Sprite -->
-                    <img src="<%= data[i].images[0].sprite %>" alt="<%= data[i].name %>">
-
-                    <!-- Pokemon Name, made uppercase -->
-                    <% let name = data[i].name %>
-                    <% name = name.charAt(0).toUpperCase() + name.slice(1) %>
-                    <span class="home-pokemon-object-name"><%= name %></span>
-
-                    <!-- Pokemon Types -->
-                    <div class="home-pokemon-object-types">
-                        <span class="pixel-font pokemon_type
-                    pokemon_type_<%=data[i].types[0].type1%>"><%= data[i].types[0].type1.toUpperCase() %></span>
-                        <% if(data[i].types[0].type2 !== undefined) { %>
-                        <span class="pixel-font pokemon_type
-                    pokemon_type_<%=data[i].types[0].type2%>"><%= data[i].types[0].type2.toUpperCase() %></span>
-                        <% } %>
+                    <div data-aos="fade-right" data-aos-duration="1500">
+                        <p>This is a mini project made to learn Full Stack Development</p>
+                        <p>Only Kanto Region Pokemon from number 1 to 151 are available.</p>
                     </div>
+                </div>
+            </header>
 
-                </a>
+            <div class="home-pokemon">
+                <% for(let i = 0; i < 151; i++) { %>
+                <div class="home-pokemon-object">
+                    <a href="/pokemon/<%= data[i].pokeID %>">
+
+                        <!-- Pokedex ID -->
+                        <span class="home-pokemon-object-pokeID">#<%= String(data[i].pokeID).padStart(3, '0') %></span>
+
+                        <!-- Pokemon Sprite -->
+                        <img src="<%= data[i].images[0].sprite %>" alt="<%= data[i].name %>">
+
+                        <!-- Pokemon Name, made uppercase -->
+                        <% let name = data[i].name %>
+                        <% name = name.charAt(0).toUpperCase() + name.slice(1) %>
+                        <span class="home-pokemon-object-name"><%= name %></span>
+
+                        <!-- Pokemon Types -->
+                        <div class="home-pokemon-object-types">
+                            <span class="pixel-font pokemon_type
+                    pokemon_type_<%=data[i].types[0].type1%>"><%= data[i].types[0].type1.toUpperCase() %></span>
+                            <% if(data[i].types[0].type2 !== undefined) { %>
+                            <span class="pixel-font pokemon_type
+                    pokemon_type_<%=data[i].types[0].type2%>"><%= data[i].types[0].type2.toUpperCase() %></span>
+                            <% } %>
+                        </div>
+
+                    </a>
+                </div>
+                <% } %>
             </div>
-            <% } %>
-        </div>
 
 
-    </main>
+        </main>
+    </div>
+
 
     <%- include('./partials/footer.ejs') %>
     <%- include('./partials/scripts.ejs') %>

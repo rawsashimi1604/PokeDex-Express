@@ -1,0 +1,52 @@
+.pokedex {
+    font-size: 1.4rem;
+
+    header {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+
+        h1 {
+            text-decoration: underline;
+        }
+    }
+
+    table,
+    thead,
+    tr,
+    th,
+    td {
+        border: 2px solid $lightStateGray;
+        text-align: center;
+    }
+
+    thead:hover {
+        background-color: $maizeCrayola;
+    }
+
+    tr:hover {
+        background-color: $maizeCrayola;
+    }
+
+    &-img-cell {
+        padding-bottom: 1.5rem !important;
+    }
+
+    a {
+        text-decoration: underline;
+        color: $blueSapphire;
+    }
+
+    a:hover {
+        color: $lightStateGray;
+        transition: 0.1s;
+    }
+
+    &-types {
+        display: flex;
+        justify-content: center;
+
+        span {
+            margin-right: 0.2rem;
+        }
+    }
+}
