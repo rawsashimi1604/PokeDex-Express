@@ -16,6 +16,10 @@
     border-radius: 25px;
     border: 1.7px solid black;
 
+    &_normal {
+        background-color: map-get($pokemonTypes, normal);
+    }
+
     &_fire {
         background-color: map-get($pokemonTypes, fire);
     }
@@ -83,4 +87,13 @@
     &_fairy {
         background-color: map-get($pokemonTypes, fairy);
     }
+}
+
+.pokemon_gene {
+    border: 1.5px solid rgb(46, 46, 46);
+    font-size: 1rem;
+    color: white;
+    display: inline-block;
+    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+    border-radius: 5px;
 }

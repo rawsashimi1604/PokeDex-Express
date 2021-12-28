@@ -3,44 +3,153 @@
 <body>
     <%- include('./partials/nav.ejs') %>
 
-    <main>
+    <main class="container">
         <div class="pokemon-main">
-            <h1 class="pokemon-name"><%= data.name %></h1>
-            <h2 class="pokemon-id"><%= data.pokeID %></h2>
-            <h3 class="pokemon-gene"><%= data.gene %></h3>
-            <img src="<%= data.images[0].sprite %>" alt="<%= data.name %>">
-            <div class="pokemon-types">
-                <span class="pixel-font pokemon_type
-                    pokemon_type_<%=data.types[0].type1%>"><%= data.types[0].type1.toUpperCase() %></span>
-                <% if(data.types[0].type2 !== undefined) { %>
-                <span class="pixel-font pokemon_type
-                    pokemon_type_<%=data.types[0].type2%>"><%= data.types[0].type2.toUpperCase() %></span>
-                <% } %>
-            </div>
-            <span class="pokemon-height">Height: <%= data.height %></span>
-            <span class="pokemon-weight">Weight: <%= data.weight %></span>
-            <span class="pokemon-description"><%= data.description %></span>
-            <% for(let i = 0; i < data.abilities.length; i++) { %>
-            <div class="pokemon-ability">
-                <span><%= data.abilities[i].name %></span>
-                <span><%= data.abilities[i].description %></span>
-                <span><%= data.abilities[i].effect %></span>
-                <span><%= data.abilities[i].is_hidden %></span>
-            </div>
-            <% } %>
-            <div class="pokemon-stats">
-                <span>Hp: <%= data.stats.hp %></span>
-                <span>Attack: <%= data.stats.attack %></span>
-                <span>Defense: <%= data.stats.defense %></span>
-                <span>Special Attack: <%= data.stats.special_attack %></span>
-                <span>Special Defense: <%= data.stats.special_defense %></span>
-                <span>Speed: <%= data.stats.speed %></span>
-            </div>
+            <article>
+                <header class="typewriter">
+                    <div class="typewriter-contents">
+                        <% let name = data.name %>
+                        <% name = name.charAt(0).toUpperCase() + name.slice(1) %>
+                        <h1 class="main-header target-typewriter"><%= name %></h1>
+                    </div>
+                </header>
 
+
+                <h2>Description</h2>
+                <p><%= data.description %></p>
+
+                <h2>Stats</h2>
+                <section class="pokemon-stats">
+                    <span class="pokemon-height">Height: <%= data.height %></span>
+                    <span class="pokemon-weight">Weight: <%= data.weight %></span>
+
+                    <table id="pokemonStats">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Stats</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>HP: <span class="stat hp"><%= data.stats.hp %></span></th>
+                                <td>
+                                    <div class="pokemon-stats-statbar"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Attack: <span class="stat att"><%= data.stats.attack %></span></th>
+                                <td>
+                                    <div class="pokemon-stats-statbar"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Defense: <span class="stat def"><%= data.stats.defense %></span></th>
+                                <td>
+                                    <div class="pokemon-stats-statbar"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Special Attack: <span class="stat spatt"><%= data.stats.special_attack %></span>
+                                </th>
+                                <td>
+                                    <div class="pokemon-stats-statbar"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Special Defense: <span class="stat spdef"><%= data.stats.special_defense %></span>
+                                </th>
+                                <td>
+                                    <div class="pokemon-stats-statbar"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Speed: <span class="stat spd"><%= data.stats.speed %></span></th>
+                                <td>
+                                    <div class="pokemon-stats-statbar"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Total: <span class="stat total"></span></th>
+                                <td>Sum of Pokemon stats reflected here.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Pokemon Abilities -->
+                <h2>Abilities</h2>
+                <% for(let i = 0; i < data.abilities.length; i++) { %>
+                <div class="pokemon-ability">
+                    <table class="pokemon_type_<%= data.types[0].type1 %>">
+                        <thead>
+                            <tr>
+                                <% let abilityName = data.abilities[i].name %>
+                                <% abilityName = abilityName.charAt(0).toUpperCase() + abilityName.slice(1) %>
+                                <th colspan="2"><%= abilityName %></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Hidden?</th>
+                                <td><%= data.abilities[i].is_hidden %></td>
+                            </tr>
+                            <tr>
+                                <th>Description: </th>
+                                <td><%= data.abilities[i].description %></td>
+                            </tr>
+                            <tr>
+                                <th>Effect: </th>
+                                <td><%= data.abilities[i].effect %></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <% } %>
+            </article>
+
+
+
+
+            <section class="pokemon-widget">
+                <div class="pokemon-widget-row">
+                    <!-- Pokemon Name -->
+
+                    <h1><%= name %> <span
+                            class="pokemon-id pokemon-widget-no">#<%= String(data.pokeID).padStart(3, '0') %></span>
+                    </h1>
+
+                    <!-- Pokemon Gene -->
+                    <h3 class="pokemon_gene pokemon_type_<%= data.types[0].type1 %>"><%= data.gene %></h3>
+
+                </div>
+
+                <!-- Pokemon Image -->
+                <img src="<%= data.images[0].sprite %>" alt="<%= data.name %>">
+
+                <!-- Pokemon Types -->
+
+                <div class="pokemon-widget-types">
+                    <span class="pokemon-widget-types-text">Type(s):</span>
+                    <span class="pixel-font pokemon_type
+                    pokemon_type_<%=data.types[0].type1%>"><%= data.types[0].type1.toUpperCase() %></span>
+                    <% if(data.types[0].type2 !== undefined) { %>
+                    <span class="pixel-font pokemon_type
+                    pokemon_type_<%=data.types[0].type2%>"><%= data.types[0].type2.toUpperCase() %></span>
+                    <% } %>
+                </div>
+
+
+            </section>
         </div>
+
+
     </main>
 
     <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/scripts.ejs') %>
+
+    <script src="../js/pokemonStats.js"></script>
 </body>
 
 <%- include('./partials/end.ejs') %>

@@ -113,7 +113,7 @@ async function seedDBNew(sleepTime) {
                 attack: statsAtt,
                 defense: statsDef,
                 special_attack: statsSpAtt,
-                speical_defense: statsSpDef,
+                special_defense: statsSpDef,
                 speed: statsSpeed
             }
 
