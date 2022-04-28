@@ -33,12 +33,12 @@ app.use('/api', require("./routes/api/pokemon"));
 app.use('/api', require("./routes/api/abilities"));
 
 const start = async () => {
-    try {
-        await connectDB(process.env.MONGO_URI);
-        app.listen(PORT, console.log(`Server is listening on port ${PORT}...`));
-    } catch (e) {
-        console.log(e);
-    }
+    // try {
+    await connectDB(process.env.MONGO_URI);
+    app.listen(PORT, console.log(`Server is listening on port ${PORT}...`));
+//     } catch (e) {
+//         console.log(e);
+//     }
 };
 
 start();

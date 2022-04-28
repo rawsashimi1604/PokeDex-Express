@@ -14,7 +14,7 @@ router.get('/', async function (req, res) {
 })
 
 router.get('/api', function (req, res) {
-    res.send("You have reached the API Page, host is " + host);
+    res.send("You have reached the API Page, host is ");
 })
 
 router.get('/pokemon', async function (req, res) {
