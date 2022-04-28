@@ -3,8 +3,10 @@ const axios = require('axios');
 const router = new express.Router();
 const getPokemon = require('../../db/getPokemon');
 
+const host = process.env.HOST                    // Current URL
+
 router.get('/', async function (req, res) {
-    axios.get('http://localhost:3000/api/pokemon').then(resp => {
+    axios.get(host + '/api/pokemon').then(resp => {
         res.render("../views/home.ejs", {
             data: resp.data
         })
@@ -16,7 +18,7 @@ router.get('/api', function (req, res) {
 })
 
 router.get('/pokemon', async function (req, res) {
-    axios.get('http://localhost:3000/api/pokemon').then(resp => {
+    axios.get(host + '/api/pokemon').then(resp => {
         res.render("../views/pokedex.ejs", {
             data: resp.data
         });
@@ -24,7 +26,7 @@ router.get('/pokemon', async function (req, res) {
 })
 
 router.get('/pokemon/:id', async function (req, res) {
-    axios.get(`http://localhost:3000/api/pokemon/${req.params.id}`).then(resp => {
+    axios.get(host + `/api/pokemon/${req.params.id}`).then(resp => {
         res.render("../views/pokemonPage.ejs", {
             data: resp.data
         });
