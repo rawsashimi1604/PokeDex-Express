@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const connectDB = require('./db/connect.js');
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 require("dotenv").config();
 
 // Live Reload
@@ -35,7 +35,7 @@ app.use('/api', require("./routes/api/abilities"));
 const start = async () => {
     try {
         await connectDB(process.env.MONGO_URI);
-        app.listen(process.env.PORT || PORT, console.log(`Server is listening on port ${PORT}...`));
+        app.listen(PORT, console.log(`Server is listening on port ${PORT}...`));
     } catch (e) {
         console.log(e);
     }
