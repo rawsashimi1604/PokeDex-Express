@@ -24,13 +24,15 @@ app.set('view engine', 'ejs');
 // Set views directory to get html templating
 app.set('views', path.join(__dirname, "views"));
 
-// Directory to serve all files
-app.use(express.static(path.join(__dirname, "/public")));
-
 // Use main routes & API routes
 app.use('/', require("./routes/main/allmain"));
 app.use('/api', require("./routes/api/pokemon"));
 app.use('/api', require("./routes/api/abilities"));
+
+// Directory to serve all files
+app.use(express.static(path.join(__dirname, "/public")));
+
+
 
 const start = async () => {
     // try {
