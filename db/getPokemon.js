@@ -7,8 +7,9 @@ async function retrieveAllPokemonFromDB() {
             pokeID: i
         });
         data.push(myPokeObj);
-        console.log("Got pokemon from DB!")
+        
     }
+    console.log("Got pokemon from DB!")
     return data;
 }
 
