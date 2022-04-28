@@ -35,7 +35,7 @@ app.use('/api', require("./routes/api/abilities"));
 const start = async () => {
     try {
         await connectDB(process.env.MONGO_URI);
-        app.listen(PORT, console.log(`Server is listening on port ${PORT}...`));
+        app.listen(process.env.PORT || PORT, console.log(`Server is listening on port ${PORT}...`));
     } catch (e) {
         console.log(e);
     }

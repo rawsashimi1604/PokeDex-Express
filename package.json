@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "devStart": "nodemon index.js",
-    "start": "node ./bin/www",
+    "start": "node index.js",
     "watch": "nodemon --ext *"
   },
   "author": "",
@@ -20,5 +20,8 @@
     "livereload": "^0.9.3",
     "mongoose": "^6.0.12",
     "nodemon": "^2.0.15"
-  }
+  },
+  "engines": {
+    "node": "14.17.5"
+  },
 }
