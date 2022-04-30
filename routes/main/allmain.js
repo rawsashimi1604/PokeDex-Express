@@ -34,7 +34,19 @@ router.get('/pokemon/:id', async function (req, res) {
 })
 
 router.get('/search', async function (req, res) {
-    
+    console.log(req.query)
+    axios.get(host + `/api/pokemon/${req.query.q}`).then(resp => {
+        const data = {}
+        if (resp.data === null) {
+            res.render("../views/404.ejs")
+        } else {
+            res.render("../views/pokemonPage.ejs", {
+                data: resp.data
+            })
+        }
+    })
+
+   
 })
 
 module.exports = router;
