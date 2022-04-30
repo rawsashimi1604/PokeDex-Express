@@ -12,7 +12,6 @@ router.get('/pokemon', async function (req, res) {
             return a.pokeID - b.pokeID;
         })
         
-        console.log(data);
         res.json(data);
     } catch (err) {
         console.log(err);

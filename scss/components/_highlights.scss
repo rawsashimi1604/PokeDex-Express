@@ -97,3 +97,77 @@
     padding: 0.2rem 0.4rem 0.2rem 0.4rem;
     border-radius: 5px;
 }
+
+.pokemon_border {
+    &_normal {
+        border: 10px solid map-get($pokemonTypes, normal);
+    }
+
+    &_fire {
+        border: 10px solid  map-get($pokemonTypes, fire);
+    }
+
+    &_water {
+        border: 10px solid  map-get($pokemonTypes, water);
+    }
+
+    &_electric {
+        border: 10px solid  map-get($pokemonTypes, electric);
+    }
+
+    &_grass {
+        border: 10px solid  map-get($pokemonTypes, grass);
+    }
+
+    &_ice {
+        border: 10px solid  map-get($pokemonTypes, ice);
+    }
+
+    &_fighting {
+        border: 10px solid  map-get($pokemonTypes, fighting);
+    }
+
+    &_poison {
+        border: 10px solid  map-get($pokemonTypes, poison);
+    }
+
+    &_ground {
+        border: 10px solid  map-get($pokemonTypes, ground);
+    }
+
+    &_flying {
+        border: 10px solid  map-get($pokemonTypes, flying);
+    }
+
+    &_psychic {
+        border: 10px solid  map-get($pokemonTypes, psychic);
+    }
+
+    &_bug {
+        border: 10px solid  map-get($pokemonTypes, bug);
+    }
+
+    &_rock {
+        border: 10px solid  map-get($pokemonTypes, rock);
+    }
+
+    &_ghost {
+        border: 10px solid  map-get($pokemonTypes, ghost);
+    }
+
+    &_dragon {
+        border: 10px solid  map-get($pokemonTypes, dragon);
+    }
+
+    &_dark {
+        border: 10px solid  map-get($pokemonTypes, dark);
+    }
+
+    &_steel {
+        border: 10px solid  map-get($pokemonTypes, steel);
+    }
+
+    &_fairy {
+        border: 10px solid  map-get($pokemonTypes, fairy);
+    }
+}

@@ -162,6 +162,78 @@
   border-radius: 5px;
 }
 
+.pokemon_border_normal {
+  border: 10px solid #A8A77A;
+}
+
+.pokemon_border_fire {
+  border: 10px solid #EE8130;
+}
+
+.pokemon_border_water {
+  border: 10px solid #6390F0;
+}
+
+.pokemon_border_electric {
+  border: 10px solid #F7D02C;
+}
+
+.pokemon_border_grass {
+  border: 10px solid #7AC74C;
+}
+
+.pokemon_border_ice {
+  border: 10px solid #96D9D6;
+}
+
+.pokemon_border_fighting {
+  border: 10px solid #C22E28;
+}
+
+.pokemon_border_poison {
+  border: 10px solid #A33EA1;
+}
+
+.pokemon_border_ground {
+  border: 10px solid #E2BF65;
+}
+
+.pokemon_border_flying {
+  border: 10px solid #A98FF3;
+}
+
+.pokemon_border_psychic {
+  border: 10px solid #F95587;
+}
+
+.pokemon_border_bug {
+  border: 10px solid #A6B91A;
+}
+
+.pokemon_border_rock {
+  border: 10px solid #B6A136;
+}
+
+.pokemon_border_ghost {
+  border: 10px solid #735797;
+}
+
+.pokemon_border_dragon {
+  border: 10px solid #6F35FC;
+}
+
+.pokemon_border_dark {
+  border: 10px solid #705746;
+}
+
+.pokemon_border_steel {
+  border: 10px solid #B7B7CE;
+}
+
+.pokemon_border_fairy {
+  border: 10px solid #D685AD;
+}
+
 nav {
   width: 100%;
   background-color: #E2C044 !important;
@@ -397,9 +469,8 @@ nav #searchBar #search-addon:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border: 3px solid #6E8898;
+  background-color: white;
   border-radius: 10px;
-  background-color: #9FB1BC;
   padding: 1rem;
   max-height: 350px;
 }

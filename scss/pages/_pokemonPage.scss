@@ -20,13 +20,11 @@
         align-items: center;
         justify-content: center;
 
-        border: 3px solid $lightStateGray;
+        background-color: white;
         border-radius: 10px;
 
-        background-color: $cadetGray;
-
         padding: 1rem;
-
+        
         max-height: 350px;
 
         &-row {
