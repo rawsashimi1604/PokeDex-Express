@@ -22,7 +22,7 @@ router.get('/pokemon', async function (req, res) {
         res.render("../views/pokedex.ejs", {
             data: resp.data
         });
-    })
+    }).catch(err => console.log(err));
 })
 
 router.get('/pokemon/:id', async function (req, res) {
