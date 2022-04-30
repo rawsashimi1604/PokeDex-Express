@@ -31,7 +31,10 @@ router.get('/pokemon/:id', async function (req, res) {
             data: resp.data
         });
     })
+})
 
+router.get('/search', async function (req, res) {
+    
 })
 
 module.exports = router;

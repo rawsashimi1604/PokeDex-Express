@@ -22,8 +22,18 @@ router.get('/pokemon', async function (req, res) {
 
 // GET Specfic Pokemon
 router.get('/pokemon/:id', async function (req, res) {
-    const data = await getPokemon.retrievePokemonFromDB(req.params.id);
-    res.json(data);
+    
+    // parameter is not a number
+    if (isNaN(req.params.id)) {                         
+        const data = await getPokemon.retrievePokemonByNameFromDB(req.params.id);
+        res.json(data);
+    } else {
+        const data = await getPokemon.retrievePokemonFromDB(req.params.id);
+        res.json(data);
+    }
+   
 })
+
+
 
 module.exports = router;

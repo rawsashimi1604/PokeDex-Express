@@ -16,8 +16,16 @@ async function retrievePokemonFromDB(pokeID) {
     } catch (error) {
         console.log(error)
     }
-    
 }
+
+async function retrievePokemonByNameFromDB(pokemonName) {
+
+    const myPokeObj = await Pokemon.findOne({
+        name: pokemonName.toLowerCase()
+    })
+    return myPokeObj;
+} 
 
 exports.retrieveAllPokemonFromDB = retrieveAllPokemonFromDB;
 exports.retrievePokemonFromDB = retrievePokemonFromDB;
+exports.retrievePokemonByNameFromDB = retrievePokemonByNameFromDB;
