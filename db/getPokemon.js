@@ -10,7 +10,8 @@ async function retrieveAllPokemonFromDB() {
             data.push(myPokeObj);
             
         }
-        console.log("Got pokemon from DB!")
+        console.log("Got pokemon from DB!");
+        console.log(data);
         return data;
     } catch (error) {
         console.log(error)
