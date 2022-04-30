@@ -7,6 +7,7 @@ const getPokemon = require('../../db/getPokemon');
 router.get('/pokemon', async function (req, res) {
     try {
         const data = await getPokemon.retrieveAllPokemonFromDB();
+        console.log(data);
         res.json(data);
     } catch (err) {
         console.log(err);
