@@ -1,5 +1,7 @@
 <h1 align="center">PokeDex Express - A Full Stack Web Application</h1>
 
+<img src="./images/Home.png"/><br>
+
 PokeDex Express is a full stack website that was built using [PokeAPI](https://pokeapi.co/). It displays all Pokemon in the Kanto region and their respective information.
 
 Link: https://sheltered-retreat-58230.herokuapp.com/
