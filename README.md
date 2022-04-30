@@ -16,7 +16,6 @@ This application calls its own in built API, made using Express.js. Data is firs
     <li>MongoDB Atlas (Cloud)</li>
     <li>SCSS</li>
     <li>EJS</li>
-    <li>SCSS</li>
     <li>Heroku (Hosting)</li>
 </ul>
 
