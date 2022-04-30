@@ -7,6 +7,11 @@ const getPokemon = require('../../db/getPokemon');
 router.get('/pokemon', async function (req, res) {
     try {
         const data = await getPokemon.retrieveAllPokemonFromDB();
+
+        data.sort((a, b) => {               // Sort all pokemon by PokeDex ID
+            return a.pokeID - b.pokeID;
+        })
+        
         console.log(data);
         res.json(data);
     } catch (err) {
