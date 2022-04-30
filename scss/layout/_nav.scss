@@ -16,10 +16,19 @@ nav {
         align-self: flex-end;
         max-width: 200px;
         margin-left: auto;
+        
+        a {
+            display: block;
+            padding:0;
+            height: 100%;
+            text-decoration: none;
+        }
 
         #search-addon {
             padding-left: 8px;
             padding-right: 8px;
+            padding-top: 10px;
+            padding-bottom: 7px;
 
             .material-icons {
                 font-size: 20px;
