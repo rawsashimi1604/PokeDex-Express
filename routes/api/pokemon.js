@@ -5,8 +5,14 @@ const getPokemon = require('../../db/getPokemon');
 
 // GET All Pokemon
 router.get('/pokemon', async function (req, res) {
-    const data = await getPokemon.retrieveAllPokemonFromDB();
-    res.json(data);
+    try {
+        const data = await getPokemon.retrieveAllPokemonFromDB();
+        res.json(data);
+    } catch (err) {
+        console.log(err);
+        res.send("Failed to get Data!")
+    }
+    
 })
 
 // GET Specfic Pokemon
